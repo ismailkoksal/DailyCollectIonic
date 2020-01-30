@@ -1,0 +1,15 @@
+<div class="containerDriver" *ngFor="let item of items | async">
+  <div class="name_div">
+    <div id="driver_name"> {{ item.name   }}</div>
+  </div>
+  <div class="city_div">
+
+    <div class="city_container">
+      <img id="map_marker" src="../../assets/green_map_marker.png">
+      <div id="driver_city">{{item.city}}</div>
+    </div>
+
+  </div>
+  <img id ="profile_img" src="{{item.urlPhoto}}">
+  
+</div>

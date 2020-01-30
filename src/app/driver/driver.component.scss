@@ -1,0 +1,63 @@
+.containerDriver{
+    width: 75%;
+    background-color: #1A73E9;
+    height: 100px;
+    
+    margin:  auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.name_div{
+width: 100%;
+height: 50%;
+}
+
+.city_div{
+    width: 100%;
+    height: 50%;
+    background-color: #FFFFFF;
+    position: relative;
+   
+}
+
+#profile_img{
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    z-index: 10;
+    border-radius: 50%;
+    border: 2px solid #1A73E9;
+}
+#map_marker{
+    float: left;
+    z-index: 10;
+}
+
+
+.city_container{
+    position: absolute;
+    bottom: 35%;
+    left: 37%;
+    height: 50%;
+    width: 50%;
+    z-index: 10;
+    color: cornsilk;
+}
+
+#driver_city{
+    z-index: 10;
+    position: absolute;
+    color: #1A73E9;
+    left: 20px;
+    float: left;
+    bottom: 0px;
+}
+#driver_name{
+    z-index: 10;
+    position: absolute;
+    color: white;
+    left: 43%;
+    top: 15%;
+}
