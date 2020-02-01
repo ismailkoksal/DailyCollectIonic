@@ -1,1 +1,72 @@
+.containerDriver{
+    width: 75%;
+    border: 1px solid  rgba(26, 116, 233, 0.5);
+    height: 70px;
+    
+    margin:  auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.name_div{
+width: 100%;
+height: 50%;
+}
+
+.round_background{
+    width: 40px;
+    height: 40px;
+    background-color: #27AE60;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    margin: auto;
+}
+
+
+#profile_img{
+    height: 24px;
+    width: 24px;
+    top: 15%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#map_marker{
+    float: left;
+    z-index: 10;
+}
+
+
+.city_container{
+    position: absolute;
+    bottom: 35%;
+    left: 37%;
+    height: 50%;
+    width: 50%;
+    z-index: 10;
+    color: #1A73E9;
+}
+
+#driver_city{
+    z-index: 10;
+    position: absolute;
+    color: rgba(0, 0, 0, 0.5);
+    left: 70px;
+    top: 40px;
+}
+#driver_name{
+    z-index: 10;
+    position: absolute;
+    color: #1A73E9;
+    left: 70px;
+    top: 15px;
+}
 
