@@ -1,0 +1,88 @@
+.containerTour{
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);    
+    width: 100%;
+    border: 1px solid rgba(26, 116, 233, 0);
+    height: 123px;
+    margin:  auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    position: relative;
+}
+.status{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E0E0E0;
+}
+.date_title{
+    height: 48px;
+    width: 60%;
+    position: absolute;
+    left: 16px;
+    top: 18px;
+
+}
+.date{
+    height:  20px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+.title{
+    height:  28px;;
+    color: rgba(0, 0, 0, 0.80);
+    font-size: 24px;
+}
+
+
+.map_marker{
+    float: left;
+    position: relative;
+}
+.ic_time{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+}
+.city-container{
+    height: 25px;
+    width: 60%;
+    position: absolute;
+    left: 16px; 
+    bottom: 13px;
+}
+
+.city-name span {
+    position: absolute;
+    bottom: 0;
+    widows: 100%;
+    
+ }
+
+.city-name{
+    width: 70%;
+    letter-spacing: 0.25 px;
+    color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    float: left;
+    position: relative;
+    font-size: 14px;
+    left: 5px;
+
+}
+
+.ic_collect_points{
+    position: absolute;
+    right: 16px;
+    bottom: 20px;
+}
+.nbr_points{
+    position: absolute;
+    right: 16px;
+    bottom: 1px;
+}
