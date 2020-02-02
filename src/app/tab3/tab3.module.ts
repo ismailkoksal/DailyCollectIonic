@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
-import { TourComponent } from '../tour/tour.component';
+import { ClientComponent } from '../client/client.component';
 
 @NgModule({
   imports: [
@@ -13,6 +13,6 @@ import { TourComponent } from '../tour/tour.component';
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab3Page }])
   ],
-  declarations: [Tab3Page, TourComponent]
+  declarations: [Tab3Page, ClientComponent]
 })
 export class Tab3PageModule {}
