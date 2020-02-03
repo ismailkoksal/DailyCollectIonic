@@ -13,9 +13,11 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.1.2",
     "@angular/core": "~8.1.2",
     "@angular/fire": "^5.4.0",
+    "@angular/flex-layout": "^9.0.0-beta.28",
     "@angular/forms": "~8.1.2",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",

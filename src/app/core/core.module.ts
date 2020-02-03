@@ -9,12 +9,14 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './auth.service';
 import {ToastService} from './toast.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
     declarations: [],
     imports: [
         CommonModule,
+        FlexLayoutModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AngularFireAuthModule
