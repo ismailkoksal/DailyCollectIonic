@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {TourService} from '../core/tour.service';
+import {Tour} from '../models/tour';
 
 @Component({
     selector: 'app-tour',
@@ -9,7 +10,7 @@ import {TourService} from '../core/tour.service';
 })
 export class TourComponent implements OnInit {
 
-    private tours$: Observable<any[]>;
+    private tours$: Observable<Tour[]>;
 
     constructor(private tourService: TourService) {
     }

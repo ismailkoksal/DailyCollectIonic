@@ -1,23 +1,19 @@
-<div *ngFor="let tour of tours$ | async" class="containerTour">
-    <div class="status">
-        <img class="ic_time" src="../../assets/ic_clock.png"/>
+<ion-content>
+    <div *ngFor="let tour of tours$ | async" class="containerTour">
+        <div class="status">
+            <img class="ic_time" src="../../assets/ic_clock.png"/>
+        </div>
+        <div class="date_title">
+            <div class="date">{{ tour.date }}</div>
+            <div class="title">Tournée {{ tour.id }}</div>
+        </div>
+        <div class="city-container">
+            <img class="map_marker" src="../../assets/grey_map_marker.png">
+            <div class="city-name"><span>{{ tour.city }}</span></div>
+        </div>
+        <img class="ic_collect_points" src="../../assets/ic_colletc_points.png">
+        <div class="nbr_points">{{ tour.list_collectPoints.length }} points</div>
+        <!--<img id="map_marker" src="../../assets/green_map_marker.png">
+        -->
     </div>
-
-    <div class="date_title">
-
-        <div class="date">{{tour.date}}</div>
-        <div class="title">Tournée {{tour.id}}</div>
-    </div>
-    <div class="city-container">
-  <img class="map_marker" src="../../assets/grey_map_marker.png">
-        <div class="city-name"><span>{{tour.city}}</span></div>
-</div>
-
-<img class="ic_collect_points" src="../../assets/ic_colletc_points.png">
-
-    <div class="nbr_points">{{tour.list_collectPoints.length}} points</div>
-
-
-    <!--<img id="map_marker" src="../../assets/green_map_marker.png">
-    -->
-</div>
+</ion-content>
