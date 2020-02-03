@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth.service';
+import {ToastService} from '../../core/toast.service';
 
 @Component({
     selector: 'app-signin',
@@ -10,7 +11,10 @@ import {AuthService} from '../../core/auth.service';
 export class SigninComponent implements OnInit {
     form: FormGroup;
 
-    constructor(private fb: FormBuilder, private authService: AuthService) {
+    constructor(
+        private fb: FormBuilder,
+        private authService: AuthService,
+        private toastService: ToastService) {
     }
 
     get email() {
@@ -33,7 +37,9 @@ export class SigninComponent implements OnInit {
     }
 
     onSubmit(): void {
-        this.authService.createUserWithEmailAndPassword(this.email.value, this.password.value);
+        this.authService.signInWithEmailAndPassword(this.email.value, this.password.value)
+            .then(value => console.log(value))
+            .catch(reason => this.toastService.presentToast(reason.code, 'danger'));
     }
 
 }

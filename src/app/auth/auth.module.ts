@@ -8,6 +8,7 @@ import {AuthPageRoutingModule} from './auth-routing.module';
 
 import {AuthPage} from './auth.page';
 import {SigninComponent} from './signin/signin.component';
+import {SignupComponent} from './signup/signup.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,7 @@ import {SigninComponent} from './signin/signin.component';
         AuthPageRoutingModule,
         ReactiveFormsModule
     ],
-    declarations: [AuthPage, SigninComponent]
+    declarations: [AuthPage, SigninComponent, SignupComponent]
 })
 export class AuthPageModule {
 }
