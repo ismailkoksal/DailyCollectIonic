@@ -1,19 +1,11 @@
-
 <ion-content>
     <div *ngFor="let customer of customers$ | async" class="containerDriver">
-
         <div class="name_div">
-            <div id="driver_name"> {{ customer.name   }}</div>
-            <div id="driver_city">{{customer.city}}</div>
+            <div id="driver_name">{{ customer.name }}</div>
+            <div id="driver_city">{{ customer.city }}</div>
         </div>
-
-
         <div class="round_background">
             <img id="profile_img" src="../../assets/ic_client.png">
-
         </div>
-
-  </div>
-
+    </div>
 </ion-content>
-

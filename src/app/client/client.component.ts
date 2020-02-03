@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ClientService} from '../core/client.service';
+import {Customer} from '../models/customer';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {ClientService} from '../core/client.service';
 })
 export class ClientComponent implements OnInit {
 
-    private customers$: Observable<any[]>;
+    private customers$: Observable<Customer[]>;
 
     constructor(private customerService: ClientService) {
     }
