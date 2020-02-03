@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {ClientService} from '../core/client.service';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+    selector: 'app-tab3',
+    templateUrl: 'tab3.page.html',
+    styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
 
+    private customers$: Observable<any[]>;
 
-  public items: Observable<any[]>;
+    constructor(private customerService: ClientService) {
+    }
 
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('/client').valueChanges();
-}
+    ngOnInit(): void {
+        this.customers$ = this.customerService.getCustomers();
+    }
 
 }

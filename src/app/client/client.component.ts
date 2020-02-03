@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {ClientService} from '../core/client.service';
 
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.scss'],
+    selector: 'app-client',
+    templateUrl: './client.component.html',
+    styleUrls: ['./client.component.scss'],
 })
 export class ClientComponent implements OnInit {
 
-  public items: Observable<any[]>;
+    private customers$: Observable<any[]>;
 
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('/client').valueChanges();
-}
+    constructor(private customerService: ClientService) {
+    }
 
-  ngOnInit() {}
-
+    ngOnInit() {
+        this.customers$ = this.customerService.getCustomers();
+    }
 }

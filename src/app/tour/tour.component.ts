@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {TourService} from '../core/tour.service';
 
 @Component({
-  selector: 'app-tour',
-  templateUrl: './tour.component.html',
-  styleUrls: ['./tour.component.scss'],
+    selector: 'app-tour',
+    templateUrl: './tour.component.html',
+    styleUrls: ['./tour.component.scss'],
 })
 export class TourComponent implements OnInit {
 
-  public items: Observable<any[]>;
+    private tours$: Observable<any[]>;
 
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('/tours').valueChanges();
-}
+    constructor(private tourService: TourService) {
+    }
 
-  ngOnInit() {}
+    ngOnInit() {
+        this.tours$ = this.tourService.getTours();
+    }
 
 }
