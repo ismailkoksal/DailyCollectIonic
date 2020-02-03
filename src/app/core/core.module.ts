@@ -6,6 +6,7 @@ import {DriverService} from './driver.service';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     imports: [
         CommonModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule
+        AngularFirestoreModule,
+        AngularFireAuthModule
     ],
     providers: [
         TourService,
