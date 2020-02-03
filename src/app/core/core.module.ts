@@ -8,6 +8,7 @@ import {environment} from '../../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './auth.service';
+import {ToastService} from './toast.service';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {AuthService} from './auth.service';
         AuthService,
         TourService,
         ClientService,
-        DriverService
+        DriverService,
+        ToastService
     ]
 })
 export class CoreModule {
