@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth.service';
 import {ToastService} from '../../core/toast.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-signin',
@@ -14,7 +15,10 @@ export class SigninComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private authService: AuthService,
-        private toastService: ToastService) {
+        private toastService: ToastService,
+        private translate: TranslateService
+    ) {
+        translate.setDefaultLang('fr');
     }
 
     get email() {

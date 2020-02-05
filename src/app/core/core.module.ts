@@ -10,6 +10,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './auth.service';
 import {ToastService} from './toast.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         FlexLayoutModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        HttpClientModule
     ],
     providers: [
         AuthService,
