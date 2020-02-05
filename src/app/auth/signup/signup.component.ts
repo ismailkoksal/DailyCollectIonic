@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {equalValueValidator} from '../shared/equal-value.validator';
 import {AuthService} from '../../core/auth.service';
 import {ToastService} from '../../core/toast.service';
@@ -18,15 +18,24 @@ export class SignupComponent implements OnInit {
         private toastService: ToastService) {
     }
 
-    get email() {
+    /**
+     * Get email form control
+     */
+    get email(): AbstractControl {
         return this.form.get('email');
     }
 
-    get password() {
+    /**
+     * Get password form control
+     */
+    get password(): AbstractControl {
         return this.form.get('password');
     }
 
-    get confirmPassword() {
+    /**
+     * Get confirm password form control
+     */
+    get confirmPassword(): AbstractControl {
         return this.form.get('confirmPassword');
     }
 
@@ -34,6 +43,9 @@ export class SignupComponent implements OnInit {
         this.buildForm();
     }
 
+    /**
+     * Init form
+     */
     buildForm(): void {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
@@ -43,6 +55,9 @@ export class SignupComponent implements OnInit {
         this.confirmPassword.setValidators([Validators.required, equalValueValidator(this.password)]);
     }
 
+    /**
+     * On form submit,
+     */
     onSubmit(): void {
         this.authService.createUserWithEmailAndPassword(this.email.value, this.password.value)
             .then(value => console.log(value))

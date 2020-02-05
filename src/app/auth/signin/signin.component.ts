@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth.service';
 import {ToastService} from '../../core/toast.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -21,11 +21,17 @@ export class SigninComponent implements OnInit {
         translate.setDefaultLang('fr');
     }
 
-    get email() {
+    /**
+     * Get email form control
+     */
+    get email(): AbstractControl {
         return this.form.get('email');
     }
 
-    get password() {
+    /**
+     * Get password form control
+     */
+    get password(): AbstractControl {
         return this.form.get('password');
     }
 
@@ -33,6 +39,9 @@ export class SigninComponent implements OnInit {
         this.buildForm();
     }
 
+    /**
+     * Init form
+     */
     buildForm(): void {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
@@ -40,6 +49,9 @@ export class SigninComponent implements OnInit {
         });
     }
 
+    /**
+     * On form submit, sign in user
+     */
     onSubmit(): void {
         this.authService.signInWithEmailAndPassword(this.email.value, this.password.value)
             .then(value => console.log(value))
