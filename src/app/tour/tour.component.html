@@ -1,9 +1,9 @@
-<div *ngFor="let tour of tours$ | async" class="containerTour">
+<div class="containerTour">
     <div class="status">
         <img class="ic_time" src="../../assets/ic_clock.png"/>
     </div>
     <div class="date_title">
-        <div class="date">{{ tour.date }}</div>
+        <div class="date">{{ tour.date.toDate()  | date:'dd/MM/yyyy'}} </div>
         <div class="title">Tournée {{ tour.id }}</div>
     </div>
     <div class="city-container">

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {TourService} from '../core/tour.service';
 import {Tour} from '../models/tour';
@@ -10,13 +10,14 @@ import {Tour} from '../models/tour';
 })
 export class TourComponent implements OnInit {
 
-    private tours$: Observable<Tour[]>;
-
-    constructor(private tourService: TourService) {
+    constructor() {
     }
 
+    @Input() tour: Tour;
+
+
     ngOnInit() {
-        this.tours$ = this.tourService.getTours();
+
     }
 
 }

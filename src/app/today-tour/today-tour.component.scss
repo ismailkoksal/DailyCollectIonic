@@ -3,6 +3,25 @@
     src: url('https://fonts.googleapis.com/css?family=Rancho&display=swap');//mine
   }
 
+.round-button{
+    bottom: 0px;
+    width: 82px;
+    height: 32px;
+    background-color: white;
+    color: #1A73E9;
+    font-size: 18px;
+    border-radius: 56px;
+    marging-bottom: 5px;
+    position: absolute;
+    right:0px;
+    bottom: 0px;
+}
+.backButton{
+    width: 100%;
+    height: auto;
+
+}
+
 .bachground{
     margin:  auto;
     margin-bottom: 15px;
