@@ -1,0 +1,48 @@
+<div class="bachground"><div class="containerTour">
+  <div class="status">
+      <img class="ic_time" src="../../assets/ic_clock.png"/>
+  </div>
+
+  <div>
+
+
+    <div class="title">{{tour.city}}</div>
+  </div>
+
+
+  <div class="body">
+
+      <div class="first-point-container">
+          <div class="round-first"></div>
+          <div class="dive"></div>
+          <div class="first-city-name"><span>{{tour.city}}</span></div>
+        </div>
+
+
+      <div *ngFor="let item of tour.list_collectPoints">
+
+          <div class="city-container">
+              <div class="round"></div>
+              <div class="dive"></div>
+              <div class="city-name"><span>{{item}}</span></div>
+          </div>
+
+      </div>
+
+
+        <div class="last-point-container">
+            <div class="round-last"></div>
+            <div class="last-city-name"><span>{{tour.city}}</span></div>
+          </div>
+  </div>
+
+
+
+
+    <!--<img id="map_marker" src="../../assets/green_map_marker.png">
+    -->
+  </div>
+</div>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Rancho&display=swap" rel="stylesheet">

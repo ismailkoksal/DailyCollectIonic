@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Rancho';
+    src: url('https://fonts.googleapis.com/css?family=Rancho&display=swap');//mine
+  }
+
+.bachground{
+    margin:  auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    position: relative;
+    background-color: #1A73E9;
+    width: 100%;
+    height: 360px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+    border: 1px solid rgba(26, 116, 233, 0);
+}
+.containerTour{
+
+
+}
+.status{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E0E0E0;
+    font-family: Rancho;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.title{
+    height:  28px;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: 12px;
+    font-family: 'Rancho', cursive;
+}
+
+
+.round{
+    position: absolute;
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #E0E0E0;//E0E0E0
+    font-family: Rancho;
+    font-size: 18px;
+    line-height: 22px;
+    border: 1px solid white;
+    left: 10px
+}
+.round-first{
+    position: absolute;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E0E0E0;//E0E0E0
+    font-family: Rancho;
+    font-size: 18px;
+    line-height: 22px;
+    border: 1px solid white;
+}
+
+.round-last{
+    position: absolute;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E0E0E0;//E0E0E0
+    font-family: Rancho;
+    font-size: 18px;
+    line-height: 22px;
+    border: 1px solid white;
+}
+.dive{
+    position: absolute;
+    float: left;
+    width: 3px;
+    height: 25px;
+    background-color: #E0E0E0;//E0E0E0
+    left: 18.5px;
+    bottom: 0px;
+}
+
+.ic_time{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+}
+.city-container{
+    height: 40px;
+    width: 60%;
+    float: left;
+    position: relative;
+}
+
+.body{
+    width: 60%;
+    float: left;
+    position: absolute;
+    left: 16px; 
+    top: 50px;
+    height: 70%;
+}
+
+.last-point-container{
+    height: 40px;
+    width: 60%;
+    float: left;
+    position: relative;
+}
+
+.first-point-container{
+    height: 61px;
+    width: 60%;
+    float: left;
+    position: relative;
+}
+
+.city-name span {
+    position: absolute;
+    bottom: 0;
+    widows: 100%;
+    color: white;
+    font-size: 18px;
+ }
+
+ span{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    letter-spacing: 0.25 px;
+    font-size: 14px;
+    color: white;
+    font-size: 18px;
+    left: 10px;
+
+ }
+.city-name{
+    height: 100%;
+    float: left;
+    position: relative;
+    left: 45px;
+
+}
+.last-city-name{
+    letter-spacing: 0.25 px;
+    height: 100%;
+    font-size: 14px;
+    left: 45px;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+}
+.first-city-name{
+    letter-spacing: 0.25 px;
+    height: 100%;
+    font-size: 14px;
+    left: 45px;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+}
