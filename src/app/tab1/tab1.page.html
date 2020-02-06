@@ -18,9 +18,15 @@
 
   <div [ngSwitch]="segment">
 
-      <app-tour *ngSwitchCase="'user'"></app-tour> 
+      <app-tour *ngSwitchCase="'user'" ></app-tour>
 
-      <app-tour *ngSwitchCase="'card'"></app-tour>
+      <div *ngSwitchCase="'card'">
+          <div  class="containerTour" *ngFor="let tour of today_tours$ | async">
+              <app-today-tour  [tour]="tour"></app-today-tour>
+          </div>
+      </div>
+
+
 
       <app-tour *ngSwitchCase="'change'"></app-tour>
         
