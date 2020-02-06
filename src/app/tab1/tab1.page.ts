@@ -16,6 +16,7 @@ export class Tab1Page {
     public tours$: Observable<Tour[]>;
     public today_tours$: Observable<Tour[]>;
     public passed_tours$: Observable<Tour[]>;
+    public coming_tours$: Observable<Tour[]>;
 
 
     constructor(public navCtrl: NavController, private tourService: TourService) {
@@ -26,6 +27,10 @@ export class Tab1Page {
 
         this.passed_tours$ = this.tours$.pipe(
             map(tours => tours.filter(tour => this.isPassed(tour.date.toDate())))
+        );
+
+        this.coming_tours$ = this.tours$.pipe(
+            map(tours => tours.filter(tour => this.isComing(tour.date.toDate())))
         );
 
     }
@@ -63,6 +68,24 @@ export class Tab1Page {
         return false;
     }
 
+    isComing(someDate: Date) {
+        const today = new Date();
+        console.log(today.getFullYear());
+        console.log(someDate.getFullYear());
+        if (someDate.getFullYear() > today.getFullYear()) {
+            return true;
+        } else if (someDate.getFullYear() === today.getFullYear()) {
+            if (someDate.getMonth() > today.getMonth()) {
+                return true;
+            } else if (someDate.getMonth() === today.getMonth()) {
+                if (someDate.getDate() > today.getDate()) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
 
 }

@@ -9,7 +9,7 @@
     <ion-segment-button value="today" ckecked>
       Aujourd'hui
     </ion-segment-button>
-    <ion-segment-button value="futur">
+    <ion-segment-button value="coming">
       À venir
     </ion-segment-button>
 
@@ -31,8 +31,13 @@
           </div>
       </div>
 
+      <div *ngSwitchCase="'coming'">
+          <div  class="containerTour" *ngFor="let tour of coming_tours$ | async">
+              <app-tour  [tour]="tour"></app-tour>
+          </div>
+      </div>
 
-      <app-tour *ngSwitchCase="'futur'" ></app-tour>
+
 
 
 
