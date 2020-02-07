@@ -74,4 +74,27 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** ovive blue **/
+  --ion-color-ovive-blue: #305ca3;
+  --ion-color-ovive-blue-rgb: 48, 92, 163;
+  --ion-color-ovive-blue-contrast: #ffffff;
+  --ion-color-ovive-blue-contrast-rgb: 255, 255, 255;
+  --ion-color-ovive-blue-shade: #2a518f;
+  --ion-color-ovive-blue-tint: #456cac;
+
+  /** ovive green **/
+  --ion-color-ovive-green: #489867;
+  --ion-color-ovive-green-rgb: 72, 152, 103;
+  --ion-color-ovive-green-contrast: #ffffff;
+  --ion-color-ovive-green-contrast-rgb: 255, 255, 255;
+  --ion-color-ovive-green-shade: #3f865b;
+  --ion-color-ovive-green-tint: #5aa276;
+
+  .modal .modal-wrapper {
+    height: 90%;
+    top: 10%;
+    position: absolute;
+    border-radius: 25px 25px 0 0;
+  }
 }
