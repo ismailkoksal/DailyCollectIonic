@@ -3,13 +3,13 @@
 <ion-content padding>
   <ion-segment  value="card" [(ngModel)]="segment">
     
-    <ion-segment-button value="user" >
+    <ion-segment-button value="passed" >
         Passé
     </ion-segment-button>
-    <ion-segment-button value="card" ckecked>
+    <ion-segment-button value="today" ckecked>
       Aujourd'hui
     </ion-segment-button>
-    <ion-segment-button value="change">
+    <ion-segment-button value="coming">
       À venir
     </ion-segment-button>
 
@@ -18,11 +18,32 @@
 
   <div [ngSwitch]="segment">
 
-      <app-tour *ngSwitchCase="'user'"></app-tour> 
 
-      <app-tour *ngSwitchCase="'card'"></app-tour>
+      <div *ngSwitchCase="'passed'">
+          <div  class="containerTour" *ngFor="let tour of passed_tours$ | async">
+              <app-tour [tour]="tour"></app-tour>
+          </div>
+      </div>
 
-      <app-tour *ngSwitchCase="'change'"></app-tour>
+      <div *ngSwitchCase="'today'">
+          <div  class="containerTour" *ngFor="let tour of today_tours$ | async">
+              <app-today-tour  [tour]="tour"></app-today-tour>
+          </div>
+      </div>
+
+      <div *ngSwitchCase="'coming'">
+          <div  class="containerTour" *ngFor="let tour of coming_tours$ | async">
+              <app-tour  [tour]="tour"></app-tour>
+          </div>
+      </div>
+
+
+
+
+
+
+
+
         
   </div>
 

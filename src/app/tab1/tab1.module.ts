@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Tab1Page } from './tab1.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TourComponent } from '../tour/tour.component';
+import { TodayTourComponent } from '../today-tour/today-tour.component';
 @NgModule({
   imports: [
     ReactiveFormsModule,
@@ -13,6 +14,6 @@ import { TourComponent } from '../tour/tour.component';
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
-  declarations: [Tab1Page, TourComponent]
+  declarations: [Tab1Page, TourComponent, TodayTourComponent]
 })
 export class Tab1PageModule {}
