@@ -11,6 +11,8 @@ import {AuthService} from './auth.service';
 import {ToastService} from './toast.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
+import {AngularFireAuthGuardModule} from '@angular/fire/auth-guard';
+import {CollectService} from './collect.service';
 
 
 @NgModule({
@@ -21,14 +23,16 @@ import {HttpClientModule} from '@angular/common/http';
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AngularFireAuthModule,
-        HttpClientModule
+        HttpClientModule,
+        AngularFireAuthGuardModule
     ],
     providers: [
         AuthService,
         TourService,
         ClientService,
         DriverService,
-        ToastService
+        ToastService,
+        CollectService
     ]
 })
 export class CoreModule {
