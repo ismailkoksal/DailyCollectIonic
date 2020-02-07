@@ -7,6 +7,8 @@ import * as firebase from 'firebase';
 import Timestamp = firebase.firestore.Timestamp;
 import {log} from 'util';
 import {DatePipe} from '@angular/common';
+import {ClientService} from '../core/client.service';
+import {Customer} from '../models/customer';
 
 @Component({
     selector: 'app-today-tour',
@@ -15,16 +17,31 @@ import {DatePipe} from '@angular/common';
 })
 export class TodayTourComponent implements OnInit {
 
+    public customers$: Observable<Customer[]>;
 
-    constructor() {
+    constructor(private customerService: ClientService) {
     }
+
 
     @Input() tour: Tour;
 
+    public firstCollectPoint: Customer;
+    public lastCollectPoint: Customer;
+    public midlleCollectPoints: Customer[] = [];
+
+
 
     ngOnInit() {
+        this.customers$ = this.customerService.getCustomers();
+
+
+        this.customers$.subscribe(value => {
+            this.firstCollectPoint = value[0];
+            this.lastCollectPoint = value[value.length - 1];
+            for (let i = 1; i < (value.length - 1); i++) {
+                this.midlleCollectPoints.push(value[i]);
+            }
+        });
 
     }
-
-
 }

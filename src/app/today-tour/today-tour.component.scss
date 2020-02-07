@@ -151,7 +151,7 @@
 .city-name span {
     position: absolute;
     bottom: 0;
-    widows: 100%;
+    width: 100%;
     color: white;
     font-size: 18px;
  }
@@ -162,8 +162,7 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    letter-spacing: 0.25 px;
-    font-size: 14px;
+    letter-spacing: 0.25px;
     color: white;
     font-size: 18px;
     left: 10px;
@@ -171,24 +170,25 @@
  }
 .city-name{
     height: 100%;
+    width: 100%;
     float: left;
     position: relative;
     left: 45px;
 
 }
 .last-city-name{
-    letter-spacing: 0.25 px;
+    letter-spacing: 0.25px;
     height: 100%;
-    font-size: 14px;
+    width: 100%;
     left: 45px;
     color: white;
     font-size: 18px;
     position: absolute;
 }
 .first-city-name{
-    letter-spacing: 0.25 px;
+    letter-spacing: 0.25px;
     height: 100%;
-    font-size: 14px;
+    width: 100%;
     left: 45px;
     color: white;
     font-size: 18px;
