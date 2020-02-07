@@ -1,5 +1,8 @@
 {
   "name": "DailyCollect",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }
