@@ -34,12 +34,21 @@ export class TodayTourComponent implements OnInit {
     ngOnInit() {
         this.customers$ = this.customerService.getCustomers();
 
-
         this.customers$.subscribe(value => {
-            this.firstCollectPoint = value[0];
-            this.lastCollectPoint = value[value.length - 1];
-            for (let i = 1; i < (value.length - 1); i++) {
-                this.midlleCollectPoints.push(value[i]);
+            for (let i = 0; i < value.length; i++) {
+                for (let j = 0; j < this.tour.list_collectPoints.length; j++) {
+                    if ( j === 0 || j === (this.tour.list_collectPoints.length - 1)) {
+                        if (this.tour.list_collectPoints[0] === value[i].id_collect_point) {
+                            this.firstCollectPoint = value[i];
+                        }
+                        if (this.tour.list_collectPoints[this.tour.list_collectPoints.length - 1] === value[i].id_collect_point) {
+                            this.lastCollectPoint = value[i];
+                        }
+                    } else if (this.tour.list_collectPoints[j] === value[i].id_collect_point) {
+                        this.midlleCollectPoints.push(value[i]);
+                    }
+                }
+
             }
         });
 

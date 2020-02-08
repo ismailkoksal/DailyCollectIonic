@@ -1,5 +1,5 @@
 export interface Customer {
-    id: string;
+    id_collect_point: string;
     name: string;
     city: string;
     creation_date: number;
