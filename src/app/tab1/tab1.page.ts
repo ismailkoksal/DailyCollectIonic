@@ -1,9 +1,13 @@
 import {Component} from '@angular/core';
-import {NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 import {TourService} from '../core/tour.service';
+import {CityService} from '../core/city.service';
 import {Observable} from 'rxjs';
 import {Tour} from '../models/tour';
 import {map} from 'rxjs/operators';
+import {City} from '../models/city';
+import {strategy} from '@angular-devkit/core/src/experimental/jobs';
+import {invalid} from '@angular/compiler/src/render3/view/util';
 
 @Component({
     selector: 'app-tab1',
@@ -14,13 +18,19 @@ export class Tab1Page {
 
     segment = 'today';
     public tours$: Observable<Tour[]>;
+    public cities$: Observable<City[]>;
     public today_tours$: Observable<Tour[]>;
     public passed_tours$: Observable<Tour[]>;
     public coming_tours$: Observable<Tour[]>;
+    testCheckboxOpen: boolean;
+    testCheckboxResult;
+    public citiesArray = [];
 
 
-    constructor(public navCtrl: NavController, private tourService: TourService) {
+    constructor(public navCtrl: NavController, private tourService: TourService, private cityService: CityService,
+                public alertController: AlertController) {
         this.tours$ = this.tourService.getTours();
+        this.cities$ = this.cityService.getCities();
         this.today_tours$ = this.tours$.pipe(
             map(tours => tours.filter(tour => this.isToday(tour.date.toDate())))
         );
@@ -32,6 +42,12 @@ export class Tab1Page {
         this.coming_tours$ = this.tours$.pipe(
             map(tours => tours.filter(tour => this.isComing(tour.date.toDate())))
         );
+
+        this.cities$.subscribe(value => {
+           value.forEach(value1 => {
+               this.citiesArray.push(value1.name);
+           }) ;
+        });
 
     }
 
@@ -85,6 +101,51 @@ export class Tab1Page {
         }
 
         return false;
+    }
+
+    addTour() {
+        this.presentCities();
+    }
+
+    public async presentCities() {
+
+        let tabl: any[] = [];
+
+
+        let index = 0;
+        this.citiesArray.forEach(val => {
+            index++;
+            let str: string = val;
+            let item = {
+                    name: ('radio' + index),
+                    type: 'radio',
+                    label: str,
+                    value: str
+                };
+
+            tabl.push(item);
+        });
+        const alert = await this.alertController.create({
+            header: 'Radio',
+            inputs  : tabl,
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: () => {
+                        console.log('Confirm Cancel');
+                    }
+                }, {
+                    text: 'Ok',
+                    handler: () => {
+                        console.log('Confirm Ok');
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
     }
 
 

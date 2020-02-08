@@ -7,5 +7,10 @@ ion-segment-button{
   --color-checked : #ffffff;
   --indicator-color-checked :#9EF769;
   }
-  
-  
+
+ion-fab-button{
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-size: 30px;
+}
