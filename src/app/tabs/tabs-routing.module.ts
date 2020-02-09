@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-
+import { AddTourComponent } from '../add-tour/add-tour.component';
 const routes: Routes = [
   {
     path: 'tabs',
@@ -58,6 +58,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
+  },
+  {
+    path: 'tabs/tab1/addTour',
+    component: AddTourComponent
   }
 ];
 

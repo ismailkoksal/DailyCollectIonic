@@ -2,12 +2,14 @@ import {Component} from '@angular/core';
 import {AlertController, NavController} from '@ionic/angular';
 import {TourService} from '../core/tour.service';
 import {CityService} from '../core/city.service';
+import {AddTourService} from '../core/add-tour.service';
 import {Observable} from 'rxjs';
 import {Tour} from '../models/tour';
 import {map} from 'rxjs/operators';
 import {City} from '../models/city';
 import {strategy} from '@angular-devkit/core/src/experimental/jobs';
 import {invalid} from '@angular/compiler/src/render3/view/util';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-tab1',
@@ -27,8 +29,8 @@ export class Tab1Page {
     public citiesArray = [];
 
 
-    constructor(public navCtrl: NavController, private tourService: TourService, private cityService: CityService,
-                public alertController: AlertController) {
+    constructor(public navCtrl: NavController, private tourService: TourService, private addTourService: AddTourService, private cityService: CityService,
+                public alertController: AlertController, public router: Router) {
         this.tours$ = this.tourService.getTours();
         this.cities$ = this.cityService.getCities();
         this.today_tours$ = this.tours$.pipe(
@@ -138,8 +140,9 @@ export class Tab1Page {
                     }
                 }, {
                     text: 'Ok',
-                    handler: () => {
-                        console.log('Confirm Ok');
+                    handler: (city) => {
+                        this.addTourService.setCityName(city);
+                        this.router.navigate(['tabs/tab1/addTour']);
                     }
                 }
             ]
