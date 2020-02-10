@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { AddTourComponent } from '../add-tour/add-tour.component';
 import { InfoTourComponent } from '../info-tour/info-tour.component';
+import {ValidateTourComponent} from '../validate-tour/validate-tour.component';
 const routes: Routes = [
   {
     path: 'tabs',
@@ -68,6 +69,10 @@ const routes: Routes = [
   {
     path: 'tabs/tab1/addTour/infoTour',
     component: InfoTourComponent
+  },
+  {
+    path: 'tabs/tab1/addTour/infoTour/validateTour',
+    component: ValidateTourComponent
   }
 ];
 

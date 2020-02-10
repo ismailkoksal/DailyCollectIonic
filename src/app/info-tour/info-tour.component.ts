@@ -5,6 +5,8 @@ import {Driver} from '../models/driver';
 import {Vehicle} from '../models/vehicle';
 import {VehicleService} from '../core/vehicle.service';
 import {AddTourService} from '../core/add-tour.service';
+import {CollectPointsService} from '../core/collect-points.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-info-tour',
@@ -16,7 +18,7 @@ export class InfoTourComponent implements OnInit {
   private vehicles$: Observable<Vehicle[]>;
 
   constructor(private driverService: DriverService, private vehicleService: VehicleService
-  ,           private addTourService: AddTourService) { }
+  ,           private addTourService: AddTourService, public router: Router) { }
 
   ngOnInit() {
     this.drivers$ = this.driverService.getDrivers();
@@ -28,6 +30,8 @@ export class InfoTourComponent implements OnInit {
     this.addTourService.setDate(date);
     this.addTourService.setDriver(driver);
     this.addTourService.setVehicle(vehicle);
+    this.router.navigate(['tabs/tab1/addTour/infoTour/validateTour']);
+
   }
 
 }
