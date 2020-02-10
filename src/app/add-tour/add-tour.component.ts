@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Tour} from '../models/tour';
 import {CollectPoint} from '../models/collectPoint';
 import {CollectPointsService} from '../core/collect-points.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-tour',
@@ -20,7 +21,7 @@ export class AddTourComponent implements OnInit {
 
 
   constructor(public alertController: AlertController, private addTourService: AddTourService,
-              private collectPointService: CollectPointsService) {
+              private collectPointService: CollectPointsService, public router: Router) {
     this.cityName =  this.addTourService.getCityName();
     this.collectPoints$ = this.collectPointService.getCollectPoints();
   }
@@ -33,4 +34,8 @@ export class AddTourComponent implements OnInit {
     this.points.push(str);
   }
 
+  public next() {
+    this.addTourService.setCollectPoints(this.points);
+    this.router.navigate(['tabs/tab1/addTour/infoTour']);
+  }
 }

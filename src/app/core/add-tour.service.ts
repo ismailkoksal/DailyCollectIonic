@@ -7,6 +7,7 @@ import {City} from '../models/city';
 })
 export class AddTourService {
   public  cityName: string;
+  public  collectPoints: string[];
 
   constructor() {
   }
@@ -17,4 +18,13 @@ export class AddTourService {
   setCityName(cityName: string){
     this.cityName = cityName;
   }
+
+  setCollectPoints(collectpoints: string[]) {
+    this.collectPoints = collectpoints;
+  }
+
+  getCollectPoints() {
+    return this.collectPoints;
+  }
+
 }
