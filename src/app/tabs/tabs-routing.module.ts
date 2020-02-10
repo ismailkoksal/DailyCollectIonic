@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { AddTourComponent } from '../add-tour/add-tour.component';
+import { InfoTourComponent } from '../info-tour/info-tour.component';
 const routes: Routes = [
   {
     path: 'tabs',
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     path: 'tabs/tab1/addTour',
     component: AddTourComponent
+  }
+  ,
+  {
+    path: 'tabs/tab1/addTour/infoTour',
+    component: InfoTourComponent
   }
 ];
 

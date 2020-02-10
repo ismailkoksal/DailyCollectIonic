@@ -7,10 +7,38 @@ import {City} from '../models/city';
 })
 export class AddTourService {
   public  cityName: string;
+  public  driver: string;
+  public  vehicle: string;
+  public  date: Date;
   public  collectPoints: string[];
 
   constructor() {
   }
+  getDriver() {
+    return this.driver;
+  }
+
+  setDriver(driver: string) {
+    this.driver = driver;
+  }
+
+  getVehicle() {
+    return this.vehicle;
+  }
+
+  setVehicle(vehicle: string) {
+    this.vehicle = vehicle;
+  }
+
+  getDate() {
+    return this.date;
+  }
+
+  setDate(date: Date) {
+    this.date = date;
+  }
+
+
   getCityName(): string {
     return this.cityName;
   }
