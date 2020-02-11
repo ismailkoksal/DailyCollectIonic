@@ -26,8 +26,9 @@ export class InfoTourComponent implements OnInit {
   }
 
 
-  public next(driver: string, vehicle: string, date: Date) {
-    this.addTourService.setDate(date);
+  public next(driver: string, vehicle: string, date: string) {
+    const newDate = new Date(date);
+    this.addTourService.setDate(newDate);
     this.addTourService.setDriver(driver);
     this.addTourService.setVehicle(vehicle);
     this.router.navigate(['tabs/tab1/addTour/infoTour/validateTour']);

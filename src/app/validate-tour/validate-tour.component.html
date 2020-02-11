@@ -29,8 +29,21 @@
       <div class="label">{{vehicle}}</div>
     </div>
 
+    <div class="city">
+      <div class="icon_container">
+        <img class="icon_img" src="../../assets/position_blue.png">
+      </div>
+      <div class="label">{{city}}</div>
+    </div>
+
 
   </div>
+
+  <div  class="containerTour" *ngFor="let point of collectPoints">
+    <app-collect-point [point]="point"> </app-collect-point>
+  </div>
+
+
 
 
 

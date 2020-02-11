@@ -11,6 +11,7 @@ export class AddTourService {
   public  vehicle: string;
   public  date: Date;
   public  collectPoints: string[];
+  public  collectPointsIDs: string[];
 
   constructor() {
   }
@@ -51,8 +52,15 @@ export class AddTourService {
     this.collectPoints = collectpoints;
   }
 
+  setCollectPointsIDs(collectpointsIds: string[]) {
+    this.collectPointsIDs = collectpointsIds;
+  }
+
   getCollectPoints() {
     return this.collectPoints;
+  }
+  getCollectPointsIDs() {
+    return this.collectPointsIDs;
   }
 
 }
