@@ -9,14 +9,16 @@ import { TabsPage } from './tabs.page';
 import {AddTourComponent} from '../add-tour/add-tour.component';
 import {InfoTourComponent} from '../info-tour/info-tour.component';
 import {ValidateTourComponent} from '../validate-tour/validate-tour.component';
+import {Tab1PageModule} from '../tab1/tab1.module';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    TabsPageRoutingModule
-  ],
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        TabsPageRoutingModule,
+        Tab1PageModule
+    ],
   declarations: [TabsPage, AddTourComponent, InfoTourComponent, ValidateTourComponent]
 })
 export class TabsPageModule {}
