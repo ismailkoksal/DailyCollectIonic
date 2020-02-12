@@ -1,7 +1,17 @@
 {
   "signIn": "Se connecter",
   "signUp": "S'inscrire",
+  "name": "Nom",
   "email": "Email",
   "password": "Mot de passe",
-  "confirmPassword": "Confirmer le mot de passe"
+  "confirmPassword": "Confirmer le mot de passe",
+  "auth/user-not-found": "L'émail et/ou le mot de passe est incorrect",
+  "auth/wrong-password": "L'émail et/ou le mot de passe est incorrect",
+  "auth/too-many-requests": "Vous faites trop de requêtes",
+  "auth/invalid-email": "Le format de l'émail est invalide",
+  "auth/weak-password": "Mot de passe faible",
+  "auth/email-already-in-use": "L'émail est déjà utilisé",
+  "my-collects": "Mes collectes",
+  "chat": "Tchat",
+  "enter-your-message": "Entrer votre message"
 }
