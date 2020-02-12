@@ -4,12 +4,14 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
+  /*
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
+   */
 
   /** secondary **/
   --ion-color-secondary: #0cd1e8;
@@ -76,12 +78,12 @@
   --ion-color-light-tint: #f5f6f9;
 
   /** ovive blue **/
-  --ion-color-ovive-blue: #305ca3;
-  --ion-color-ovive-blue-rgb: 48, 92, 163;
-  --ion-color-ovive-blue-contrast: #ffffff;
-  --ion-color-ovive-blue-contrast-rgb: 255, 255, 255;
-  --ion-color-ovive-blue-shade: #2a518f;
-  --ion-color-ovive-blue-tint: #456cac;
+  --ion-color-primary: #305ca3;
+  --ion-color-primary-rgb: 48, 92, 163;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #2a518f;
+  --ion-color-primary-tint: #456cac;
 
   /** ovive green **/
   --ion-color-ovive-green: #489867;
@@ -90,11 +92,4 @@
   --ion-color-ovive-green-contrast-rgb: 255, 255, 255;
   --ion-color-ovive-green-shade: #3f865b;
   --ion-color-ovive-green-tint: #5aa276;
-
-  .modal .modal-wrapper {
-    height: 90%;
-    top: 10%;
-    position: absolute;
-    border-radius: 25px 25px 0 0;
-  }
 }
