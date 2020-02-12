@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
 import {Collect} from '../../models/collect';
 import {CollectService} from '../../core/collect.service';
 import {ModalController} from '@ionic/angular';
+import {DatePipe} from '@angular/common';
 
 @Component({
     selector: 'app-add-collect',
@@ -15,7 +16,8 @@ export class AddCollectComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private collectService: CollectService,
-        private modalController: ModalController
+        private modalController: ModalController,
+        private datePipe: DatePipe
     ) {
     }
 
@@ -29,11 +31,7 @@ export class AddCollectComponent implements OnInit {
 
     buildForm(): void {
         this.form = this.fb.group({
-            date: [''],
-            time: [''],
-            location: [''],
-            type: [''],
-            kg: [0]
+            date: [this.datePipe.transform(Date.now(), 'yyyy-MM-ddTHH:mm:ss')]
         });
     }
 
