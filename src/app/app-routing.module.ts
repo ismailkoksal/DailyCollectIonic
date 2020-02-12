@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./customer/customer.module').then(m => m.CustomerPageModule),
         canActivate: [AngularFireAuthGuard],
         data: {authGuardPipe: redirectUnauthorizedToLogin}
+    },
+    {
+        path: 'ovive',
+        loadChildren: () => import('./ovive/ovive.module').then(m => m.OvivePageModule)
     }
 ];
 
