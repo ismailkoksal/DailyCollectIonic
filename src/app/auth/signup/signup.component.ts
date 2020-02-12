@@ -3,6 +3,9 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {equalValueValidator} from '../shared/equal-value.validator';
 import {AuthService} from '../../core/auth.service';
 import {ToastService} from '../../core/toast.service';
+import {User} from '../../models/user';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-signup',
@@ -15,7 +18,10 @@ export class SignupComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private authService: AuthService,
-        private toastService: ToastService) {
+        private toastService: ToastService,
+        private router: Router,
+        private translateService: TranslateService
+    ) {
     }
 
     /**
@@ -39,6 +45,14 @@ export class SignupComponent implements OnInit {
         return this.form.get('confirmPassword');
     }
 
+    get displayName(): AbstractControl {
+        return this.form.get('displayName');
+    }
+
+    get photoURL(): AbstractControl {
+        return this.form.get('photoURL');
+    }
+
     ngOnInit() {
         this.buildForm();
     }
@@ -50,7 +64,9 @@ export class SignupComponent implements OnInit {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required],
-            confirmPassword: ['']
+            confirmPassword: [''],
+            displayName: ['', Validators.required],
+            photoURL: ['']
         });
         this.confirmPassword.setValidators([Validators.required, equalValueValidator(this.password)]);
     }
@@ -60,8 +76,20 @@ export class SignupComponent implements OnInit {
      */
     onSubmit(): void {
         this.authService.createUserWithEmailAndPassword(this.email.value, this.password.value)
-            .then(value => console.log(value))
-            .catch(reason => this.toastService.presentToast(reason.code, 'danger'));
+            .then(userCredential => {
+                const user: User = {
+                    uid: userCredential.user.uid,
+                    email: this.email.value,
+                    displayName: this.displayName.value,
+                    photoURL: this.photoURL.value
+                };
+                this.authService.addUserData(user).then(
+                    () => this.router.navigate(['']));
+            })
+            .catch(reason => {
+                this.translateService.get(reason.code)
+                    .subscribe(code => this.toastService.presentToast(code, 'danger'));
+            });
     }
 
 }

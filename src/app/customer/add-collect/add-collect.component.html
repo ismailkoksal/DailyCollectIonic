@@ -1,16 +1,19 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Ajouter une collecte</ion-title>
+    </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
         <ion-item>
             <ion-label position="floating">Date</ion-label>
-            <ion-input formControlName="date"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">Heure</ion-label>
-            <ion-input formControlName="time"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">Localisation</ion-label>
-            <ion-input formControlName="location"></ion-input>
+            <ion-datetime displayFormat="DDDD D MMMM à H:mm" formControlName="date"></ion-datetime>
         </ion-item>
         <ion-button type="submit">Ajouter</ion-button>
     </form>

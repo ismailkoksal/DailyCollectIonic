@@ -10,10 +10,16 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './auth.service';
 import {ToastService} from './toast.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AngularFireAuthGuardModule} from '@angular/fire/auth-guard';
 import {CollectService} from './collect.service';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {ChatService} from './chat.service';
 
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     declarations: [],
@@ -24,6 +30,13 @@ import {CollectService} from './collect.service';
         AngularFirestoreModule,
         AngularFireAuthModule,
         HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
         AngularFireAuthGuardModule
     ],
     providers: [
@@ -32,7 +45,8 @@ import {CollectService} from './collect.service';
         ClientService,
         DriverService,
         ToastService,
-        CollectService
+        CollectService,
+        ChatService
     ]
 })
 export class CoreModule {

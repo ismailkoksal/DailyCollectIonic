@@ -21,7 +21,7 @@ export class CollectService {
             switchMap(user => this.afs
                 .collection('customers')
                 .doc(user.uid)
-                .collection<Collect>('collects')
+                .collection<Collect>('collects', ref => ref.orderBy('date'))
                 .valueChanges({idField: 'id'}))
         );
     }
