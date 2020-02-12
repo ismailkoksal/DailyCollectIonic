@@ -9,6 +9,8 @@ import {log} from 'util';
 import {DatePipe} from '@angular/common';
 import {ClientService} from '../core/client.service';
 import {Customer} from '../models/customer';
+import {CollectPointsService} from '../core/collect-points.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-today-tour',
@@ -19,7 +21,7 @@ export class TodayTourComponent implements OnInit {
 
     public customers$: Observable<Customer[]>;
 
-    constructor(private customerService: ClientService) {
+    constructor(private customerService: ClientService, public router: Router) {
     }
 
 
@@ -52,5 +54,9 @@ export class TodayTourComponent implements OnInit {
             }
         });
 
+    }
+
+    details() {
+        this.router.navigate(['tabs/tab1/detailTour/temp']);
     }
 }
