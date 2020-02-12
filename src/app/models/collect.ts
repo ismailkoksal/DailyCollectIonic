@@ -1,4 +1,6 @@
+import {firestore} from 'firebase';
+
 export interface Collect {
     id?: string;
-    date: string;
+    date: firestore.Timestamp;
 }
