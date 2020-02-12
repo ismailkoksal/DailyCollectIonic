@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth.service';
 import {ToastService} from '../../core/toast.service';
-import {TranslateService} from '@ngx-translate/core';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-signin',
@@ -17,10 +17,9 @@ export class SigninComponent implements OnInit {
         private fb: FormBuilder,
         private authService: AuthService,
         private toastService: ToastService,
-        private translate: TranslateService,
-        private router: Router
+        private router: Router,
+        private translateService: TranslateService
     ) {
-        translate.setDefaultLang('fr');
     }
 
     /**
@@ -57,7 +56,10 @@ export class SigninComponent implements OnInit {
     onSubmit(): void {
         this.authService.signInWithEmailAndPassword(this.email.value, this.password.value)
             .then(() => this.router.navigate(['customer']))
-            .catch(reason => this.toastService.presentToast(reason.code, 'danger'));
+            .catch(reason => {
+                this.translateService.get(reason.code)
+                    .subscribe(code => this.toastService.presentToast(code, 'danger'));
+            });
     }
 
 }
