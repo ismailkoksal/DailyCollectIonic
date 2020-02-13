@@ -30,12 +30,25 @@ export class CollectService {
             switchMap(user => {
                 const collect: Collect = {
                     userId: user.uid,
+                    isValid: false,
                     date
                 };
                 return this.afs
                     .collection<Collect>('collects')
                     .add(collect);
             })
+        );
+    }
+
+    getCollectsNotInTour(): Observable<Collect[]> {
+        return this.afs.collection<Collect>('collects', ref => ref.where('isValid', '==', false)).valueChanges({idField: 'id'});
+    }
+
+    setCollectValid(collectId: string) {
+        this.afs.doc(`collects/${collectId}`).update(
+            {
+                isValid: true
+            }
         );
     }
 }
