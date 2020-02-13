@@ -50,6 +50,6 @@ export class TodayTourComponent implements OnInit {
     }
 
     details() {
-        this.router.navigateByUrl('ovive/tours/detailTour/temp');
+        this.router.navigateByUrl('ovive/tours/detailTour/Paris');
     }
 }

@@ -31,7 +31,18 @@
     </div>
 
     <div *ngSwitchCase="'map'">
-      <h3>Map</h3>
+      <agm-map
+              [latitude]="location?.lat"
+              [longitude]="location?.lng"
+              [zoom]="8"
+              [disableDefaultUI]="false"
+              [zoomControl]="false">
+        <agm-marker
+                [latitude]="location?.lat"
+                [longitude]="location?.lng">
+        </agm-marker>
+      </agm-map>
+      <p *ngIf="loading">Loading...</p>
     </div>
 
 
