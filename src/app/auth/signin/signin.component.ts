@@ -55,7 +55,7 @@ export class SigninComponent implements OnInit {
      */
     onSubmit(): void {
         this.authService.signInWithEmailAndPassword(this.email.value, this.password.value)
-            .then(() => this.router.navigate(['customer']))
+            .then(() => this.router.navigate(['']))
             .catch(reason => {
                 this.translateService.get(reason.code)
                     .subscribe(code => this.toastService.presentToast(code, 'danger'));
