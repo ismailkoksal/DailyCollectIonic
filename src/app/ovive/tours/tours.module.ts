@@ -13,6 +13,7 @@ import {CollectPointComponent} from './collect-point/collect-point.component';
 import {TourComponent} from './tour/tour.component';
 import {AddTourComponent} from './add-tour/add-tour.component';
 import {ValidateTourComponent} from './validate-tour/validate-tour.component';
+import {DetailTourComponent} from '../shared/detail-tour/detail-tour.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import {ValidateTourComponent} from './validate-tour/validate-tour.component';
         CollectPointComponent,
         AddTourComponent,
         InfoTourComponent,
-        ValidateTourComponent
+        ValidateTourComponent,
+        DetailTourComponent
     ]
 })
 export class ToursPageModule {

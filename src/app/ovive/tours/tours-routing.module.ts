@@ -5,6 +5,7 @@ import {ToursPage} from './tours.page';
 import {AddTourComponent} from './add-tour/add-tour.component';
 import {InfoTourComponent} from './info-tour/info-tour.component';
 import {ValidateTourComponent} from './validate-tour/validate-tour.component';
+import {DetailTourComponent} from "../shared/detail-tour/detail-tour.component";
 
 const routes: Routes = [
     {
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'validateTour',
         component: ValidateTourComponent
+    },
+    {
+        path: 'detailTour/:id',
+        component: DetailTourComponent
     }
 ];
 

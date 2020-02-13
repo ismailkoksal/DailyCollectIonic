@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Tour} from '../../../models/tour';
-import * as firebase from 'firebase';
 import {ClientService} from '../../../core/client.service';
 import {Customer} from '../../../models/customer';
 import {Router} from '@angular/router';
@@ -51,6 +50,6 @@ export class TodayTourComponent implements OnInit {
     }
 
     details() {
-        this.router.navigate(['tabs/tab1/detailTour/temp']);
+        this.router.navigateByUrl('ovive/tours/detailTour/temp');
     }
 }
