@@ -9,6 +9,8 @@ import {CollectPoint} from '../models/collectPoint';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Toast} from '@capacitor/core';
 import * as firebase from 'firebase';
+import {AlertController} from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-validate-tour',
@@ -23,9 +25,10 @@ export class ValidateTourComponent implements OnInit {
   public collectPoints: string[];
   public collectPointsIDs: string[];
   public db;
+  public validateIsClicked = false;
 
   constructor(private addTourService: AddTourService, private collectPointsService: AddTourService,
-              private afs: AngularFirestore) { }
+              private afs: AngularFirestore, public router: Router) { }
 
   ngOnInit() {
     this.driver = this.addTourService.getDriver();
@@ -37,6 +40,7 @@ export class ValidateTourComponent implements OnInit {
   }
 
   public validate() {
+    this.validateIsClicked = true;
     const tour = {
       city: this.city,
       id_Rider: this.driver,
@@ -44,7 +48,9 @@ export class ValidateTourComponent implements OnInit {
       list_collectPoints:  this.collectPointsIDs
     };
 
-    this.afs.collection('tours').doc('id').set(tour);
+    const id =  firebase.firestore.Timestamp.fromDate(new Date());
+    this.afs.collection('tours').doc(id.toMillis().toString()).set(tour);
+    this.router.navigate(['tabs/tab1']);
   }
 
 }

@@ -3,8 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>Valider la Tournée</ion-title>
   </ion-toolbar>
 </ion-header>
+<div *ngIf=" validateIsClicked == true" >
+  <ion-progress-bar type="indeterminate"></ion-progress-bar>
+</div>
 
 <ion-content class="ion-padding">
 

@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Détails Tournée</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment  value="card" [(ngModel)]="segment">
+
+    <ion-segment-button value="collectPoints" >
+      Détails
+    </ion-segment-button>
+    <ion-segment-button value="map" ckecked>
+      Carte
+    </ion-segment-button>
+
+
+  </ion-segment>
+
+
+  <div [ngSwitch]="segment">
+
+
+    <div *ngSwitchCase="'collectPoints'">
+      <div  class="containerTour" *ngFor="let point of collectPoints">
+        <app-collect-point [point]="point"> </app-collect-point>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'map'">
+      <h3>Map</h3>
+    </div>
+
+
+
+  </div>
+
+</ion-content>
+
+
+
+

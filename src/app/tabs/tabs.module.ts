@@ -10,6 +10,7 @@ import {AddTourComponent} from '../add-tour/add-tour.component';
 import {InfoTourComponent} from '../info-tour/info-tour.component';
 import {ValidateTourComponent} from '../validate-tour/validate-tour.component';
 import {Tab1PageModule} from '../tab1/tab1.module';
+import {DetailTourComponent} from '../detail-tour/detail-tour.component';
 
 @NgModule({
     imports: [
@@ -19,6 +20,6 @@ import {Tab1PageModule} from '../tab1/tab1.module';
         TabsPageRoutingModule,
         Tab1PageModule
     ],
-  declarations: [TabsPage, AddTourComponent, InfoTourComponent, ValidateTourComponent]
+  declarations: [TabsPage, AddTourComponent, InfoTourComponent, ValidateTourComponent, DetailTourComponent]
 })
 export class TabsPageModule {}
