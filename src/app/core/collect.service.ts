@@ -29,6 +29,9 @@ export class CollectService {
         return this.auth.getUser().pipe(
             switchMap(user => {
                 const collect: Collect = {
+                    city: user.city,
+                    address: user.address,
+                    customerName: user.displayName,
                     userId: user.uid,
                     isValid: false,
                     date

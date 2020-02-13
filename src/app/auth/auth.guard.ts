@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {switchMap, take} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 import {AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable({
@@ -13,18 +13,18 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.auth.user.pipe(
-        take(1),
         switchMap(async authState => {
           if (authState) {
-            const token = await authState.getIdTokenResult();
+            const token = await authState.getIdTokenResult(true);
+            console.log(token.claims);
             if (token.claims.ovive) {
-              await this.router.navigate(['ovive']);
+              this.router.navigate(['ovive']);
             }
             if (token.claims.rider) {
-              await this.router.navigate(['rider']);
+              this.router.navigate(['rider']);
             }
             if (token.claims.customer) {
-              await this.router.navigate(['customer']);
+              this.router.navigate(['customer']);
             }
             return false;
           } else {

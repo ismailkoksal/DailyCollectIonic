@@ -9,7 +9,7 @@ const riderOnly = () => hasCustomClaim('rider');
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'auth',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule),
         canActivate: [AuthGuard],
         runGuardsAndResolvers: 'always'
@@ -25,12 +25,17 @@ const routes: Routes = [
         loadChildren: () => import('./ovive/ovive.module').then(m => m.OvivePageModule),
         canActivate: [AngularFireAuthGuard],
         data: {authGuardPipe: oviveOnly}
+    },
+    {
+        path: '',
+        redirectTo: 'auth',
+        pathMatch: 'full'
     }
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
     ],
     exports: [RouterModule]
 })

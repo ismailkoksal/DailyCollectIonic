@@ -53,6 +53,14 @@ export class SignupComponent implements OnInit {
         return this.form.get('photoURL');
     }
 
+    get address(): AbstractControl {
+        return this.form.get('address');
+    }
+
+    get city(): AbstractControl {
+        return this.form.get('city');
+    }
+
     ngOnInit() {
         this.buildForm();
     }
@@ -66,7 +74,9 @@ export class SignupComponent implements OnInit {
             password: ['', Validators.required],
             confirmPassword: [''],
             displayName: ['', Validators.required],
-            photoURL: ['']
+            photoURL: [''],
+            address: ['', Validators.required],
+            city: ['', Validators.required],
         });
         this.confirmPassword.setValidators([Validators.required, equalValueValidator(this.password)]);
     }
@@ -81,11 +91,15 @@ export class SignupComponent implements OnInit {
                     uid: userCredential.user.uid,
                     email: this.email.value,
                     displayName: this.displayName.value,
-                    photoURL: this.photoURL.value
+                    photoURL: this.photoURL.value,
+                    address: this.address.value,
+                    city: this.city.value
                 };
                 this.authService.addUserData(user).then(
-                    () => this.router.navigate(['']));
+                    () => this.toastService.presentToast(`Bienvenue ${user.displayName}`, 'success')
+                );
             })
+            .then(() => this.router.navigate(['']))
             .catch(reason => {
                 this.translateService.get(reason.code)
                     .subscribe(code => this.toastService.presentToast(code, 'danger'));
