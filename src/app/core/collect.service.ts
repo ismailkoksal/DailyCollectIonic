@@ -4,6 +4,7 @@ import {Collect} from '../models/collect';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {switchMap} from 'rxjs/operators';
 import {AuthService} from './auth.service';
+import {firestore} from 'firebase';
 
 @Injectable({
     providedIn: 'root'
@@ -19,20 +20,22 @@ export class CollectService {
     getCollects(): Observable<Collect[]> {
         return this.auth.getUser().pipe(
             switchMap(user => this.afs
-                .collection('customers')
-                .doc(user.uid)
-                .collection<Collect>('collects', ref => ref.orderBy('date'))
+                .collection<Collect>('collects', ref => ref.where('userId', '==', user.uid).orderBy('date'))
                 .valueChanges({idField: 'id'}))
         );
     }
 
-    addCollect(collect: Collect): Observable<any> {
+    addCollect(date: firestore.Timestamp): Observable<any> {
         return this.auth.getUser().pipe(
-            switchMap(user => this.afs
-                .collection('customers')
-                .doc(user.uid)
-                .collection<Collect>('collects')
-                .add(collect))
+            switchMap(user => {
+                const collect: Collect = {
+                    userId: user.uid,
+                    date
+                };
+                return this.afs
+                    .collection<Collect>('collects')
+                    .add(collect);
+            })
         );
     }
 }

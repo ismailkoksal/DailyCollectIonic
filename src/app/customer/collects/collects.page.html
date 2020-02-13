@@ -1,24 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button (click)="signOut()">
-        <ion-icon name="exit"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Mes collectes</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button (click)="signOut()">
+                <ion-icon name="exit"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ 'my-collects' | translate }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab horizontal="end" slot="fixed" vertical="bottom">
-    <ion-fab-button (click)="presentModal()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <ion-fab horizontal="end" slot="fixed" vertical="bottom">
+        <ion-fab-button (click)="presentModal()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
-  <ion-list>
-    <ion-item *ngFor="let collect of collects$ | async">
-      <ion-label>{{collect | json}}</ion-label>
-    </ion-item>
-  </ion-list>
+    <ion-card *ngFor="let collect of collects$ | async">
+        <ion-item lines="full">
+            <ion-label>{{collect.id}}</ion-label>
+        </ion-item>
+
+        <ion-card-content>
+            {{collect.date | date: 'dd/MM/yyyy à H:mm'}}
+        </ion-card-content>
+    </ion-card>
 </ion-content>

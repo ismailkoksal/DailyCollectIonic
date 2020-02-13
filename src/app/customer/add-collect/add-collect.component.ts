@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
-import {Collect} from '../../models/collect';
 import {CollectService} from '../../core/collect.service';
 import {ModalController} from '@ionic/angular';
 import {DatePipe} from '@angular/common';
@@ -36,10 +35,7 @@ export class AddCollectComponent implements OnInit {
     }
 
     onSubmit() {
-        const collect: Collect = {
-            date: this.date.value
-        };
-        this.collectService.addCollect(collect).subscribe(
+        this.collectService.addCollect(this.date.value).subscribe(
             () => this.dismiss()
         );
     }
