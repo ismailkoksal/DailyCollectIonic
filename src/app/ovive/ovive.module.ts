@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 import {OvivePageRoutingModule} from './ovive-routing.module';
 
 import {OvivePage} from './ovive.page';
+import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {OvivePage} from './ovive.page';
     IonicModule,
     OvivePageRoutingModule
   ],
-  declarations: [OvivePage]
+  declarations: [OvivePage],
+  providers: [Geolocation]
 })
 export class OvivePageModule {
 }
