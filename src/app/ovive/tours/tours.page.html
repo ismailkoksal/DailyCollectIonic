@@ -1,0 +1,49 @@
+<ion-content padding>
+  <ion-segment [(ngModel)]="segment" value="card">
+
+    <ion-segment-button value="passed">
+      Passé
+    </ion-segment-button>
+    <ion-segment-button ckecked value="today">
+      Aujourd'hui
+    </ion-segment-button>
+    <ion-segment-button value="coming">
+      À venir
+    </ion-segment-button>
+
+  </ion-segment>
+
+
+  <div [ngSwitch]="segment">
+
+
+    <div *ngSwitchCase="'passed'">
+      <div *ngFor="let tour of passed_tours$ | async" class="containerTour">
+        <app-tour [tour]="tour"></app-tour>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'today'">
+      <div *ngFor="let tour of today_tours$ | async" class="containerTour">
+        <app-today-tour [tour]="tour"></app-today-tour>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'coming'">
+      <div *ngFor="let tour of coming_tours$ | async" class="containerTour">
+        <app-tour [tour]="tour"></app-tour>
+      </div>
+    </div>
+
+    <ion-fab horizontal="end" slot="fixed" vertical="bottom">
+      <ion-fab-button (click)="addTour()" color="primary">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+
+  </div>
+
+</ion-content>
+
+

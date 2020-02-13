@@ -1,12 +1,11 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {AngularFireAuthGuard, hasCustomClaim, redirectLoggedInTo} from '@angular/fire/auth-guard';
+import {AngularFireAuthGuard, hasCustomClaim} from '@angular/fire/auth-guard';
 import {AuthGuard} from './auth/auth.guard';
 
 const customerOnly = () => hasCustomClaim('customer');
 const oviveOnly = () => hasCustomClaim('ovive');
 const riderOnly = () => hasCustomClaim('rider');
-const redirectLoggedIn = () => redirectLoggedInTo(hasCustomClaim('ovive') ? ['ovive'] : ['customer']);
 
 const routes: Routes = [
     {
@@ -14,10 +13,6 @@ const routes: Routes = [
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule),
         canActivate: [AuthGuard],
         runGuardsAndResolvers: 'always'
-    },
-    {
-        path: 'tabs',
-        loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
     },
     {
         path: 'customer',

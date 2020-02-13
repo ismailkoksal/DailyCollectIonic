@@ -1,0 +1,41 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Points de collectes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>Selectionnez les points de collectes.</ion-list-header>
+
+    <ion-item>
+      <ion-label>Choisir</ion-label>
+      <ion-select #select>
+        <ion-select-option  *ngFor="let point of collectPoints$   | async">{{point.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" class="btn-fon-size"(click)="addSelect(select.value)">+</ion-button>
+
+  <div *ngFor="let point of selectedPoints">
+    <div class="containerDriver">
+      <div class="name_div">
+        <div id="driver_name">{{ point }}</div>
+      </div>
+      <div class="round_background">
+        <img id="profile_img" src="../../../../assets/ic_client.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <ion-button color="primary" class="next" (click)="next()">Suivant</ion-button>
+    <ion-button color="secondary" class="cancel">Annuler</ion-button>
+  </div>
+
+</ion-content>
+
+

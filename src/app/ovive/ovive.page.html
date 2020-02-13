@@ -1,9 +1,26 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>ovive</ion-title>
-    </ion-toolbar>
-</ion-header>
+<ion-tabs>
 
-<ion-content>
-    <div class="map" id="map"></div>
-</ion-content>
+    <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="tours">
+            <ion-icon name="git-merge"></ion-icon>
+            <ion-label>Tournées</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="riders">
+            <ion-icon name="bicycle"></ion-icon>
+            <ion-label>Chauffeurs</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="customers">
+            <ion-icon name="people"></ion-icon>
+            <ion-label>Clients</ion-label>
+        </ion-tab-button>
+
+
+        <ion-tab-button tab="settings">
+            <ion-icon name="options"></ion-icon>
+            <ion-label>Parametres</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+
+</ion-tabs>
