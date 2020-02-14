@@ -44,6 +44,15 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'chat',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('./chat/chat.module').then(m => m.ChatPageModule)
+                    }
+                ]
+            },
+            {
                 path: '',
                 redirectTo: 'tours',
                 pathMatch: 'full'
@@ -54,7 +63,7 @@ const routes: Routes = [
         path: '',
         redirectTo: 'tours',
         pathMatch: 'full'
-    }
+    },
 ];
 
 @NgModule({

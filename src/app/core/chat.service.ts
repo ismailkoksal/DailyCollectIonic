@@ -14,6 +14,10 @@ export class ChatService {
     constructor(private afs: AngularFirestore, private authService: AuthService) {
     }
 
+    getChats() {
+        return this.afs.collection('chats').valueChanges({idField: 'id'});
+    }
+
     getMessages(friendId): Observable<Message[]> {
         return this.authService.getUser().pipe(
             switchMap(user => {
@@ -38,15 +42,14 @@ export class ChatService {
                     createdAt: firestore.Timestamp.now()
                 };
                 return this.afs
-                    .collection('chats')
-                    .doc(chatId)
-                    .collection('messages').add(message);
+                    .doc(`chats/${chatId}`).set({})
+                    .then(() => this.afs.doc(`chats/${chatId}`).collection('messages').add(message));
             })
         );
     }
 
     private getChatId(userOneId: string, userTwoId: string): string {
         const chatUsers = [userOneId, userTwoId].sort((a, b) => a.localeCompare(b));
-        return `${chatUsers[0]}-${chatUsers[1]}`;
+        return `${chatUsers[0]}${chatUsers[1]}`;
     }
 }
