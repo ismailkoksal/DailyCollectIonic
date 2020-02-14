@@ -25,13 +25,31 @@
 
 
     <div *ngSwitchCase="'collectPoints'">
-      <div  class="containerTour" *ngFor="let point of collectPoints">
+      <div  class="containerTour" *ngFor="let point of collectPointsNames">
         <app-collect-point [point]="point"> </app-collect-point>
       </div>
     </div>
 
     <div *ngSwitchCase="'map'">
-      <h3>Map</h3>
+      <agm-map
+              [latitude]="location?.lat"
+              [longitude]="location?.lng"
+              [zoom]="12"
+              [disableDefaultUI]="false"
+              [zoomControl]="false">
+        <agm-marker
+                *ngFor="let point of collecPoints"
+                [latitude]="point.latitude"
+                [longitude]="point.longitude"
+                [iconUrl]= markericon>
+
+          <agm-info-window>
+            <img src="../../../../assets/Icon_client_green.png"/>
+            <strong>{{point.name}}</strong>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+      <p *ngIf="loading">Loading...</p>
     </div>
 
 

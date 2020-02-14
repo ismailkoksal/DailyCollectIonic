@@ -1,3 +1,21 @@
 ion-segment{
   width: 100%;
 }
+agm-map {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+
+* {
+  font-family: Lato;
+}
+
+a {
+  color: darkblue;
+}
+
+agm-marker{
+  color: #1A73E9;
+}
