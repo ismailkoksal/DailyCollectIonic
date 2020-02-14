@@ -25,7 +25,7 @@
 
 
     <div *ngSwitchCase="'collectPoints'">
-      <div  class="containerTour" *ngFor="let point of collectPoints">
+      <div  class="containerTour" *ngFor="let point of collectPointsNames">
         <app-collect-point [point]="point"> </app-collect-point>
       </div>
     </div>

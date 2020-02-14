@@ -33,15 +33,15 @@ export class ValidateTourComponent implements OnInit {
 
   public validate() {
     this.validateIsClicked = true;
+    const tourID =  firebase.firestore.Timestamp.fromDate(new Date());
     const tour = {
+      id: tourID.toMillis().toString(),
       city: this.city,
       id_Rider: this.driver,
       date: firebase.firestore.Timestamp.fromDate(this.date),
       list_collectPoints:  this.collectPointsIDs
     };
-
-    const id =  firebase.firestore.Timestamp.fromDate(new Date());
-    this.afs.collection('tours').doc(id.toMillis().toString()).set(tour);
+    this.afs.collection('tours').doc(tourID.toMillis().toString()).set(tour);
     this.router.navigate(['']);
   }
 
