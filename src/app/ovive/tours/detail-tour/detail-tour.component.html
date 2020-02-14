@@ -34,12 +34,19 @@
       <agm-map
               [latitude]="location?.lat"
               [longitude]="location?.lng"
-              [zoom]="8"
+              [zoom]="12"
               [disableDefaultUI]="false"
               [zoomControl]="false">
         <agm-marker
-                [latitude]="location?.lat"
-                [longitude]="location?.lng">
+                *ngFor="let point of collecPoints"
+                [latitude]="point.latitude"
+                [longitude]="point.longitude"
+                [iconUrl]= markericon>
+
+          <agm-info-window>
+            <img src="../../../../assets/Icon_client_green.png"/>
+            <strong>{{point.name}}</strong>
+          </agm-info-window>
         </agm-marker>
       </agm-map>
       <p *ngIf="loading">Loading...</p>

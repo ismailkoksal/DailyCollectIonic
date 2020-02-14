@@ -18,12 +18,15 @@ export class DetailTourComponent implements OnInit {
     segment = 'collectPoints';
     collectPointsIDs: string[] = [];
     collectPointsNames: string[] = [];
+    collecPoints: CollectPoint[] = [];
     public tours: Observable<Tour[]>;
     address = 'London';
     tour: Tour;
     location: Location;
     loading: boolean;
     tourId: string;
+    latLong: Map<string, string> = new Map<string, string>();
+    markericon = '../../../../assets/map_marker_ng.png';
 
     constructor(private route: ActivatedRoute, private geocodeService: GeocodeService,
                 private ref: ChangeDetectorRef, private tourService: TourService, private collectPointsService: CollectPointsService) {
@@ -47,8 +50,8 @@ export class DetailTourComponent implements OnInit {
     }
 
     getCollectPointsNames() {
-        const collecPoints: Observable<CollectPoint[]> = this.collectPointsService.getCollectPoints();
-        collecPoints.subscribe(value => {
+        const temp: Observable<CollectPoint[]>  = this.collectPointsService.getCollectPoints();
+        temp.subscribe(value => {
             value.forEach(value1 => {
                 this.collectPointsIDs.forEach(value2 => {
                     const id: string = value2;
@@ -56,6 +59,8 @@ export class DetailTourComponent implements OnInit {
                     const pointID: string = point.clientId;
                     if (pointID ===  id) {
                         this.collectPointsNames.push(value1.name);
+                        this.collecPoints.push(point);
+                        this.latLong.set(point.latitude, point.longitude);
                     }
                 });
             });
