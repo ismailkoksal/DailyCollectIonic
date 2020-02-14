@@ -19,3 +19,24 @@ a {
 agm-marker{
   color: #1A73E9;
 }
+.btn-container{
+  width: 160px;
+  height: 75px;
+  margin: 0 auto;
+  z-index: 10;
+  background-color: #1A73E9;
+  border-radius: 56px;
+}
+.container {
+  z-index: 11;
+  height: 90px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 0px;
+}
+.naviguer{
+  color: white;
+  position: relative;
+
+}
